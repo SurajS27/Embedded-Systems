@@ -1,0 +1,178 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    02/10/2023  11:50:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\trycode.obj TO .\Objects\try PRINT (.\Listings\try.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\trycode.obj (TRYCODE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?COPY)
+
+
+LINK MAP OF MODULE:  .\Objects\try (TRYCODE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     001EH     UNIT         _DATA_GROUP_
+            IDATA   0026H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00F6H     UNIT         ?C?LIB_CODE
+            CODE    08F6H     0045H     UNIT         ?PR?MAIN?TRYCODE
+            CODE    093BH     0027H     UNIT         ?PR?_MSDELAY?TRYCODE
+            CODE    0962H     0020H     UNIT         ?PR?LCD_INIT?TRYCODE
+            CODE    0982H     001EH     UNIT         ?CO?TRYCODE
+            CODE    09A0H     0012H     UNIT         ?PR?_LCD_CMD?TRYCODE
+            CODE    09B2H     0012H     UNIT         ?PR?_LCD_DATA?TRYCODE
+            CODE    09C4H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\try (TRYCODE)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?TRYCODE
+
+?PR?MAIN?TRYCODE               0008H    001EH
+  +--> ?CO?TRYCODE
+  +--> ?PR?LCD_INIT?TRYCODE
+  +--> ?PR?_LCD_DATA?TRYCODE
+  +--> ?PR?_MSDELAY?TRYCODE
+
+?PR?LCD_INIT?TRYCODE           -----    -----
+  +--> ?PR?_MSDELAY?TRYCODE
+  +--> ?PR?_LCD_CMD?TRYCODE
+
+?PR?_MSDELAY?TRYCODE           -----    -----
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  02/10/2023  11:50:21  PAGE 2
+
+
+  +--> ?PR?_LCD_CMD?TRYCODE
+
+?PR?_LCD_DATA?TRYCODE          -----    -----
+  +--> ?PR?_MSDELAY?TRYCODE
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\try (TRYCODE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TRYCODE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:08F6H         PUBLIC        main
+  C:09B2H         PUBLIC        _lcd_data
+  C:0982H         SYMBOL        _?ix1000
+  C:0991H         SYMBOL        _?ix1001
+  C:09A0H         PUBLIC        _lcd_cmd
+  C:0962H         PUBLIC        lcd_init
+  B:00B0H.4       PUBLIC        e
+  B:00B0H.2       PUBLIC        rs
+  B:00B0H.3       PUBLIC        rw
+  C:0942H         PUBLIC        _msdelay
+  C:093BH         SYMBOL        L?0019
+  -------         PROC          L?0018
+  -------         ENDPROC       L?0018
+  C:093BH         SYMBOL        L?0019
+  -------         PROC          _MSDELAY
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0942H         LINE#         12
+  C:0942H         LINE#         14
+  C:0942H         LINE#         18
+  C:094CH         LINE#         20
+  C:0961H         LINE#         22
+  -------         ENDPROC       _MSDELAY
+  -------         PROC          _LCD_CMD
+  D:0007H         SYMBOL        command
+  C:09A0H         LINE#         24
+  C:09A0H         LINE#         26
+  C:09A0H         LINE#         28
+  C:09A2H         LINE#         30
+  C:09A4H         LINE#         32
+  C:09A6H         LINE#         34
+  C:09A8H         LINE#         35
+  C:09AFH         LINE#         37
+  C:09B1H         LINE#         39
+  -------         ENDPROC       _LCD_CMD
+  -------         PROC          _LCD_DATA
+  D:0007H         SYMBOL        disp_data
+  C:09B2H         LINE#         42
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  02/10/2023  11:50:21  PAGE 3
+
+
+  C:09B2H         LINE#         44
+  C:09B2H         LINE#         46
+  C:09B4H         LINE#         48
+  C:09B6H         LINE#         50
+  C:09B8H         LINE#         52
+  C:09BAH         LINE#         54
+  C:09C1H         LINE#         56
+  C:09C3H         LINE#         58
+  -------         ENDPROC       _LCD_DATA
+  -------         PROC          LCD_INIT
+  C:0962H         LINE#         61
+  C:0962H         LINE#         63
+  C:0962H         LINE#         65
+  C:0964H         LINE#         67
+  C:0967H         LINE#         69
+  C:0969H         LINE#         71
+  C:096CH         LINE#         73
+  C:096EH         LINE#         75
+  C:0971H         LINE#         76
+  C:0976H         LINE#         78
+  C:097BH         LINE#         80
+  -------         ENDPROC       LCD_INIT
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        a
+  D:0017H         SYMBOL        b
+  D:0082H         SYMBOL        l
+  -------         ENDDO         
+  C:08F6H         LINE#         84
+  C:08F6H         LINE#         86
+  C:08F6H         LINE#         88
+  C:0909H         LINE#         89
+  C:091CH         LINE#         90
+  C:091FH         LINE#         92
+  C:0922H         LINE#         94
+  C:092CH         LINE#         96
+  C:092CH         LINE#         97
+  C:092FH         LINE#         99
+  C:0930H         LINE#         100
+  C:0937H         LINE#         101
+  C:0939H         LINE#         103
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TRYCODE
+
+  -------         MODULE        ?C?COPY
+  C:08D0H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00CEH BYTE (10%) *
+******************************************************************************
+
+Program Size: data=39.0 xdata=0 code=467
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

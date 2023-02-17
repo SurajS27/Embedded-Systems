@@ -1,0 +1,3 @@
+".\Objects\ak.obj" 
+TO ".\Objects\try2" 
+PRINT(".\Listings\try2.m51")
