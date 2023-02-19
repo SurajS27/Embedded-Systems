@@ -1,0 +1,70 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    02/08/2023  21:24:48  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\Question1.obj TO .\Objects\Q1 PRINT (.\Listings\Q1.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Question1.obj (QUESTION1)
+
+
+LINK MAP OF MODULE:  .\Objects\Q1 (QUESTION1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0066H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Q1 (QUESTION1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        QUESTION1
+  C:0046H         SYMBOL        ADCLOOP
+  C:005DH         SYMBOL        DELAY
+  C:0061H         SYMBOL        INNERLOOP
+  C:0040H         SYMBOL        MAIN
+  C:005FH         SYMBOL        OUTERLOOP
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00B0H         SYMBOL        P3
+  C:004EH         SYMBOL        POLL
+  C:0000H         LINE#         2
+  C:0040H         LINE#         5
+  C:0043H         LINE#         6
+  C:0046H         LINE#         8
+  C:0048H         LINE#         9
+  C:004AH         LINE#         10
+  C:004CH         LINE#         11
+  C:004EH         LINE#         12
+  C:0051H         LINE#         13
+  C:0053H         LINE#         14
+  C:0055H         LINE#         15
+  C:0057H         LINE#         16
+  C:0059H         LINE#         17
+  C:005BH         LINE#         18
+  C:005DH         LINE#         20
+  C:005FH         LINE#         22
+  C:0061H         LINE#         23
+  C:0063H         LINE#         24
+  C:0065H         LINE#         25
+  -------         ENDMOD        QUESTION1
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  02/08/2023  21:24:48  PAGE 2
+
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0029H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=102
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
