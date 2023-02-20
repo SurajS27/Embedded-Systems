@@ -1,0 +1,59 @@
+A51 MACRO ASSEMBLER  QUESTION1                                                            02/08/2023 21:24:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Question1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Question1.a51 SET(SMALL) DEBUG PRINT(.\Listings\Question1.lst) OBJECT(.
+                      \Objects\Question1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020040            2     LJMP MAIN
+0040                   3     ORG 0040H
+0040                   4     MAIN: 
+0040 7590FF            5     MOV P1, #0xFF 
+0043 758000            6     MOV P0, #0x00
+0046                   7     ADCLOOP:
+0046 C2B7              8     CLR P3.7
+0048 D2B6              9     SETB P3.6
+004A C2B5             10     CLR P3.5  
+004C D2B5             11     SETB P3.5 
+004E 20B4FD           12     POLL: JB P3.4, POLL 
+0051 C2B7             13     CLR P3.7 
+0053 C2B6             14     CLR P3.6
+0055 115D             15     ACALL delay
+0057 E590             16     MOV A,P1
+0059 F580             17     MOV P0,A
+005B 0146             18     AJMP ADCLOOP
+005D                  19     delay:
+005D 7F0F             20     MOV R7, #0x0F
+005F                  21     OUTERLOOP:
+005F 7E0F             22     MOV R6,#0x0F
+0061 DEFE             23     INNERLOOP: DJNZ R6,INNERLOOP
+0063 DFFA             24     DJNZ R7, OUTERLOOP
+0065 22               25     ret
+                      26     END
+A51 MACRO ASSEMBLER  QUESTION1                                                            02/08/2023 21:24:48 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADCLOOP. . . . . .  C ADDR   0046H   A   
+DELAY. . . . . . .  C ADDR   005DH   A   
+INNERLOOP. . . . .  C ADDR   0061H   A   
+MAIN . . . . . . .  C ADDR   0040H   A   
+OUTERLOOP. . . . .  C ADDR   005FH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+POLL . . . . . . .  C ADDR   004EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
