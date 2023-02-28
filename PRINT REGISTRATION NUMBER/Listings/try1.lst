@@ -1,0 +1,52 @@
+C51 COMPILER V9.60.7.0   TRY1                                                              02/28/2023 15:16:31 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE TRY1
+OBJECT MODULE PLACED IN .\Objects\try1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE try1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\try1
+                    -.lst) TABS(2) OBJECT(.\Objects\try1.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          void init_serial() {
+   4   1          TMOD = 0x20;  // Set Timer 1 in Mode 2
+   5   1          TH1 = 0xFD;   // Set baud rate to 9600 bps
+   6   1          SCON = 0x50;  // Enable serial communication
+   7   1          TR1 = 1;      // Start Timer 1
+   8   1      }
+   9          
+  10          void send_char(char c) {
+  11   1          SBUF = c;     // Load character into buffer
+  12   1          while(TI == 0); // Wait until transmission is complete
+  13   1          TI = 0;       // Clear transmit interrupt flag
+  14   1      }
+  15          
+  16          void send_string(char *str) {
+  17   1          while(*str) {
+  18   2              send_char(*str++);
+  19   2          }
+  20   1      }
+  21          
+  22          void main() {
+  23   1          char *number = "20BCE10690"; // The number to be sent
+  24   1          init_serial(); // Initialize serial communication
+  25   1          while(1) { // Continuously send the number
+  26   2              send_string(number);
+  27   2          }
+  28   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     80    ----
+   CONSTANT SIZE    =     11    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
